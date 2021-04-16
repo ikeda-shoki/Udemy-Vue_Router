@@ -11,12 +11,6 @@
   </nav>
 </template>
 
-<script>
-export default {
-
-}
-</script>
-
 <style scoped>
   nav {
     background-color: gray;
