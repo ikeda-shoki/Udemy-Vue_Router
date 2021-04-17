@@ -8,6 +8,7 @@
     <!-- それを防ぐ為にexact属性があり、これはURLと完全一致した場合のみ適応される -->
     <router-link to="/" active-class="link--active" exact>Home</router-link>
     <router-link to="/users" active-class="link--active">Users</router-link>
+    <router-link to="/post" active-class="link--active">Posts</router-link>
     <button @click="increment(2)">+1</button>
     <button @click="decrement(2)">-1</button>
   </nav>

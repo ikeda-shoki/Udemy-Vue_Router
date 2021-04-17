@@ -6,6 +6,7 @@ import UsersPosts from './views/UsersPosts.vue';
 import UsersProfile from './views/UsersProfile.vue';
 import HomeHeader from './views/HomeHeader.vue';
 import UsersHeader from './views/UsersHeader.vue';
+import Post from './views/Post.vue'
 
 
 // Vue.useでプラグインを使用するということ、プラグインとはアプリ全体に影響を与えること
@@ -46,7 +47,13 @@ export default new Router({
         // nameを指定することでパスの遷移時にnameで指定のURLへ遷移できるようになる
         { path: "profile", component: UsersProfile, name: "users-id-profile" }
       ]
-    }, ],
+    },
+    { path: "/post",
+      components: {
+        default: Post,
+        header: UsersHeader,
+      }
+    } ],
     // router-linkを使用して画面をスクロールする際の設定,URLが切り替わった際に実装される
     scrollBehavior(to, savedPosition) {
       // transitionがない場合
