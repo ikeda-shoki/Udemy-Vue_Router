@@ -31,12 +31,27 @@ export default {
       axios.post(
         `https://firestore.googleapis.com/v1/projects/${process.env.VUE_APP_FIREBASE_URL}/databases/(default)/documents/comments`,
         {
-          // fieldsはfirebaseで使用する決まった記載内容
+          // fieldsはfirebaseで使用する決まった記載内容、下記の記載内容は各アプリケーションにあったものを使用
           fields: {
-
+            name: {
+              stringValue: this.name
+            },
+            comment: {
+              stringValue: this.comment
+            }
           }
         }
-      );
+      )
+      // postの引数ではなく、引数の外で下記で上記のpostが成功したらthenの内容が走る
+      .then(response => {
+        console.log(response);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+
+      this.name = "";
+      this.comment = "";
     }
   }
 }
