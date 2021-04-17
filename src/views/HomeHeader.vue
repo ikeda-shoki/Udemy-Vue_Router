@@ -8,28 +8,51 @@
     <!-- それを防ぐ為にexact属性があり、これはURLと完全一致した場合のみ適応される -->
     <router-link to="/" active-class="link--active" exact>Home</router-link>
     <router-link to="/users" active-class="link--active">Users</router-link>
+    <button @click="increment(2)">+1</button>
+    <button @click="decrement(2)">-1</button>
   </nav>
 </template>
 
+<script>
+// import { mapMutations } from "vuex";
+import { mapActions } from "vuex";
+
+export default {
+  // methods: {
+  //   increment() {
+  //     // commitを使用することでstoreのmutationsを呼びたせるようになる
+  //     this.$store.commit("increment", 2);
+  //   },
+  //   decrement() {
+  //     this.$store.commit("decrement", 2)
+  //   }
+  // }
+  // 下記がmutationsのmapMutationsの記載例
+  methods: {
+    ...mapActions(["increment", "decrement"]),
+  },
+};
+</script>
+
 <style scoped>
-  nav {
-    background-color: gray;
-    height: 50px;
-    width: 100%;
-    text-align: center;
-  }
+nav {
+  background-color: gray;
+  height: 50px;
+  width: 100%;
+  text-align: center;
+}
 
-  a {
-    line-height: 50px;
-    margin-right: 20px;
-    color: black;
-    text-decoration: none;
-    font-size: 20px;
-    font-weight: bold;
-    cursor: pointer;
-  }
+a {
+  line-height: 50px;
+  margin-right: 20px;
+  color: black;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
 
-  .link--active {
-    font-size: 25px;
-  }
+.link--active {
+  font-size: 25px;
+}
 </style>
